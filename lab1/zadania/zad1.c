@@ -6,12 +6,13 @@
 #include <stdbool.h>
 
 int random(int min,int max){
-    
+    //funkcja losująca liczbę z przedziału
     int range=max-min;
     int resoult=(rand()%range)+min;
     return resoult;
 }
 int prime(int x){
+    //funkcja sprawdzająca czy liczba jest pierwsza
     if(x<2){
         return false;
     }
