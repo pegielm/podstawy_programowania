@@ -30,8 +30,54 @@ void slupek(char *dluga,char *krotka,int d,int k){
     }
 
     printf("\n dluzsza liczba %s , krotsza %s",dluga,krotka);
-    for(int i=d-1;i>=0;i--){
+    int a,b,roznica=d-k,suma,reszta=0;
+    char gora[100];
+    int wynik[100];
+    char dc,kc;
+    for(int i=d-1,j=k-1;j>=0;i--,j--){
         
+        dc=dluga[i];
+        kc=krotka[j];
+        a=dc-'0';
+        b=kc-'0';
+        
+        printf("\n i %d   j %d   a %d     b %d",i,j,a,b);
+        suma=a+b+reszta;
+        if(suma>9){
+            reszta=1;
+            gora[i]='1';
+        }
+        else{
+            reszta=0;
+            gora[i]=' ';
+        }
+        suma = suma % 10;
+        wynik[i]=suma;
+        printf("\n suma: %d",suma);
+
+    }
+    for(int i=roznica-1;i>=0;i--){
+        
+    }
+    printf("\n");
+    for(int i=0;i<d;i++){
+        printf("%c ",gora[i]);
+    }
+    printf("\n");
+    for(int i=0;i<d;i++){
+        printf("%c ",dluga[i]);
+    }
+    printf("\n");
+    for(int i=(roznica*2)-1;i>=0;i--){
+        printf(" ");
+    }
+    for(int i=0;i<k;i++){
+        printf("%c ",krotka[i]);
+    }
+    
+    printf("\n");
+    for(int i=0;i<d;i++){
+        printf("%d ",wynik[i]);
     }
 }
 int main(){
