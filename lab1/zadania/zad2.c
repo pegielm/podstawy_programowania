@@ -11,7 +11,7 @@ double rng(double min, double max)
 }
 int main(){
     srand(time(NULL));
-    int liczba_punktow=3;
+    int liczba_punktow=0;
     double pole=0;
     double wynik;
     double x,y;
@@ -22,23 +22,23 @@ int main(){
         x=rng(-0.5,0.5);
         y=rng(-0.5,0.5);
         printf("\n x = %f , y = %f ",x,y);
-        if(x<0 && y>0 && y<=sqrt(0.25-x*x)){  //sprawdzanie ćwiartki i czy  znajduje sie nad/pod polem w danej ćwiartce 
+        if(x<0 && y>0 && y<=(sqrt(0.25-(x*x)))){  //sprawdzanie ćwiartki i czy  znajduje sie nad/pod polem w danej ćwiartce 
             pole++;
             printf("1");
         }
-        if(x>0 && y>0 && y<=-sqrt(-x*x+x)+0.5){
+        else if(x>0 && y>0 && y<=(-sqrt(-(x*x)+x)+0.5)){
             pole++;
             printf("2");
         }
-        if(x<0 && y<0 && y>=-sqrt((1-x*x/0.25)*0.09)){
+        else if(x<0 && y<0 && y>=(-sqrt((1-((x*x*4)))*0.09))){
             pole++;
             printf("3");
         }
-        if(x>0 && y<0 && y>=1.2*x*x-0.03){
+        else if(x>0 && y<0 && y>=((1.2*x*x)-0.3)){
             pole++;
             printf("4");
         }
-        if(x==0  || y==0){
+        else if(x==0  || y==0){
             pole++;
             printf("0");
         }
@@ -49,7 +49,7 @@ int main(){
 }
 /*
 LICZBA LOSOWAN      POLE  
-1000                0.378000      
-10000               0.377000
-100000              0.370120
+1000                0.483000
+10000               0.467100
+100000              0.464950
 */
