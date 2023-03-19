@@ -34,7 +34,9 @@ void slupek(char *dluga,char *krotka,int d,int k){
     char gora[100];
     int wynik[100];
     char dc,kc;
-    for(int i=d-1,j=k-1;j>=0;i--,j--){
+    bool przesun=false;
+    char dodatkowa;
+    for(int i=d-1,j=k-1;j>=0;i--,j--){ //idziemy od końca obu liczb dopóki dłuższa sie nie skończy
         
         dc=dluga[i];
         kc=krotka[j];
@@ -49,25 +51,44 @@ void slupek(char *dluga,char *krotka,int d,int k){
         }
         else{
             reszta=0;
-            gora[i]=' ';
+            gora[i]='0';
         }
         suma = suma % 10;
         wynik[i]=suma;
-        printf("\n suma: %d",suma);
+        printf("\n suma: %d , indeks i: %d j: %d , roznica %d",suma,i,j,roznica);
 
     }
     for(int i=roznica-1;i>=0;i--){
-        
+        dc=dluga[i];
+        a=dc-'0';
+        suma=a+reszta;
+        if(suma>9){
+            reszta=1;
+            gora[i]='1';
+        }
+        else{
+            reszta=0;
+            gora[i]='0';
+        }
+        suma=suma % 10;
+        wynik[i]=suma;
     }
     printf("\n");
     for(int i=0;i<d;i++){
-        printf("%c ",gora[i]);
+        if(gora[i]=='1'){
+            printf("%c ",gora[i]);
+        }
+        else{
+            printf("  ");
+        }
     }
-    printf("\n");
+
+    printf("\n  ");
     for(int i=0;i<d;i++){
         printf("%c ",dluga[i]);
     }
-    printf("\n");
+
+    printf("\n  ");
     for(int i=(roznica*2)-1;i>=0;i--){
         printf(" ");
     }
@@ -76,6 +97,12 @@ void slupek(char *dluga,char *krotka,int d,int k){
     }
     
     printf("\n");
+    if(reszta==1){
+        printf("1 ");
+    }
+    else{
+        printf("  ");
+    }
     for(int i=0;i<d;i++){
         printf("%d ",wynik[i]);
     }
