@@ -56,6 +56,7 @@ void operations(int n,int * A,int * B,int lenA,int lenB){
     {
     case 1:
         printf(" op1 ");
+        
         break;
     case 2:
         printf(" op2 ");
