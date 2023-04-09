@@ -1,3 +1,6 @@
+/*
+gcc -o app main.c suma.c czesc_wspolna.c roznica.c roznica_symetryczna.c rowne.c zawiera.c
+*/
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
