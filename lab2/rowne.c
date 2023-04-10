@@ -18,7 +18,7 @@ void rowne(int *A, int *B, int lenA, int lenB) {
         }
         if (!found) {
             printf("Zbiory A i B nie sa rowne.\n");
-            return false;
+            return ;
         }
     }
     printf("Zbiory A i B sa rowne.\n");

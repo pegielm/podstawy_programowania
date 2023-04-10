@@ -25,5 +25,12 @@ int * czesc_wspolna(int *A, int *B, int lenA, int lenB) {
         }
         printf("\n");
     }
-    return intersection;
+    //allocate memory for the result
+    int *result = (int *)malloc(k * sizeof(int));
+    //copy the result to the allocated memory
+    for (i = 0; i < k; i++) {
+        result[i] = intersection[i];
+    }
+    return result;
+
 }

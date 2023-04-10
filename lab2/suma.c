@@ -1,5 +1,6 @@
 #include "suma.h"
 #include <stdio.h>
+#include <stdlib.h>
 int * suma(int *A, int *B, int lenA, int lenB) {
     int sum[lenA + lenB];
     int i, j, k;
@@ -25,5 +26,11 @@ int * suma(int *A, int *B, int lenA, int lenB) {
         printf("%d ", sum[i]);
     }
     printf("\n");
-    return sum;
+    //allocate memory for the result
+    int *result = (int *)malloc(k * sizeof(int));
+    //copy the result to the allocated memory
+    for (i = 0; i < k; i++) {
+        result[i] = sum[i];
+    }
+    return result;
 }

@@ -1,4 +1,5 @@
 OBJS	= main.o suma.o czesc_wspolna.o roznica.o roznica_symetryczna.o rowne.o zawiera.o
+TEST = test.o suma.o czesc_wspolna.o roznica.o roznica_symetryczna.o rowne.o zawiera.o
 SOURCE	= main.c suma.c czesc_wspolna.c roznica.c roznica_symetryczna.c rowne.c zawiera.c
 HEADER	= 
 OUT	= app
@@ -11,6 +12,9 @@ all: $(OBJS)
 
 main.o: main.c
 	$(CC) $(FLAGS) main.c 
+
+test.o: test.c
+	$(CC) $(FLAGS) test.c
 
 suma.o: suma.c
 	$(CC) $(FLAGS) suma.c 
@@ -30,6 +34,9 @@ rowne.o: rowne.c
 zawiera.o: zawiera.c
 	$(CC) $(FLAGS) zawiera.c 
 
-
+test: $(TEST)
+	$(CC) -g $(TEST) -o test $(LFLAGS)
 clean:
 	rm -f $(OBJS) $(OUT)
+check:
+	valgrind --leak-check=full ./$(OUT)

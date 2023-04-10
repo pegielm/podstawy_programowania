@@ -82,14 +82,6 @@ int remove_duplicates(int* arr, int length) {
     return new_length;
 }
 void operations(int n,int * A,int * B,int lenA,int lenB){
-    printf("\n A: ");
-        for(int i=0;i<lenA;i++){
-            printf("%d ",A[i]);
-        }
-        printf("\n B: ");
-        for(int i=0;i<lenB;i++){
-            printf("%d ",B[i]);
-        }
     qsort(A, lenA, sizeof(int), compare);
     qsort(B, lenB, sizeof(int), compare);
     lenA = remove_duplicates(A, lenA);

@@ -31,5 +31,11 @@ int * roznica_symetryczna(int *A, int *B, int lenA, int lenB) {
         }
         printf("\n");
     }
-    return symmetric_difference;
+    //allocate memory for the result
+    int *result = (int *)malloc(k * sizeof(int));
+    //copy the result to the allocated memory
+    for (i = 0; i < k; i++) {
+        result[i] = symmetric_difference[i];
+    }
+    return result;
 }
