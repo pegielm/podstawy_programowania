@@ -1,5 +1,10 @@
 {
     "files.associations": {
-        "time.h": "c"
+        "time.h": "c",
+        "cstdio": "c",
+        "string.h": "c",
+        "roznica_symetryczna.h": "c",
+        "stdio.h": "c",
+        "zawiera.h": "c"
     }
 }

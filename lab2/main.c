@@ -46,10 +46,10 @@ int* split_string(char* str, int* num_parts) {
         }
     }
 
-    // Allocate memory for the array of integers
+    
     int * parts = (int*)malloc(sizeof(int) * count);
 
-    // Split the string by periods and convert each part to an integer
+   
     char* token = strtok(str, ".");
     int i = 0;
     while (token != NULL) {
@@ -57,7 +57,7 @@ int* split_string(char* str, int* num_parts) {
         token = strtok(NULL, ".");
     }
 
-    // Set the number of parts
+    
     *num_parts = count;
 
     return parts;

@@ -26,9 +26,9 @@ int * suma(int *A, int *B, int lenA, int lenB) {
         printf("%d ", sum[i]);
     }
     printf("\n");
-    //allocate memory for the result
+    
     int *result = (int *)malloc(k * sizeof(int));
-    //copy the result to the allocated memory
+    
     for (i = 0; i < k; i++) {
         result[i] = sum[i];
     }

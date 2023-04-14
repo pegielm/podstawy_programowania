@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 int * roznica(int *A, int *B, int lenA, int lenB) {
+    
     int difference[lenA];
     int i, j, k;
     i = j = k = 0;
@@ -27,9 +28,9 @@ int * roznica(int *A, int *B, int lenA, int lenB) {
         }
         printf("\n");
     }
-    //allocate memory for the result
+    
     int *result = (int *)malloc(k * sizeof(int));
-    //copy the result to the allocated memory
+    
     for (i = 0; i < k; i++) {
         result[i] = difference[i];
     }

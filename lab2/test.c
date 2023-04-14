@@ -13,10 +13,10 @@ int compare(int arr1[], int arr2[], int n) {
     for (int i = 0; i < n; i++) {
         //printf("xd");
         if (arr1[i] != arr2[i]) {
-            return 0; // The arrays are not equal
+            return 0; 
         }
     }
-    return 1; // The arrays are equal
+    return 1; 
 }
 int main(){
     //basic unit tests with assert.h
@@ -44,10 +44,6 @@ int main(){
     printf("OK\n");
     //------------------ROZNICA------------------
     printf("------------------ROZNICA------------------\n");
-    int E[3] = {1,2,3};
-    int F[3] = {2,3,4};
-    int lenE = 3;
-    int lenF = 3;
     wynik = roznica(C,D,lenC,lenD);
     int oczekiwany3[1] = {1};
     assert(compare(wynik, oczekiwany3, 1) == 1);
