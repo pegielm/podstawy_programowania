@@ -71,7 +71,7 @@ int main(int argc, char **argv){
     scanf("%d", &n);
     int *heap = (int *)malloc(n * sizeof(int));
     for(int i=0;i<n;i++){
-        heap[i]=random(-10,10);
+        heap[i]=random(-9,9);
     }
     wypisz(heap,0,n);
     spacje(n);
