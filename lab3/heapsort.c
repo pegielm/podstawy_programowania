@@ -3,6 +3,8 @@
 #include <stdbool.h>
 #include <time.h>
 #include <string.h>
+
+bool t = false;
 void wypisz(int tab[], int n, int k){
     //wypisz elementy od n do k
     for(int i=n;i<k;i++){ 
@@ -43,24 +45,28 @@ int * sortowanie(int tab[],int n){
     for(int i=n/2-1;i>=0;i--){
         kopiec(tab,n,i);
     }
-    wypisz(tab,0,n);
-    spacje(n);
-    printf("<- utworzenie kopca\n");
+    if(t==true){
+        wypisz(tab,0,n);
+        spacje(n);
+        printf("<- utworzenie kopca\n");
+    }
     for(int i=n-1;i>=0;i--){
         int temp=tab[0];
         tab[0]=tab[i];
         tab[i]=temp;
         kopiec(tab,i,0);
-        wypisz(tab,0,i);
-        spacje(n);
-        wypisz(tab,i,n);
-        printf("<-przeniesienie wierzcholka %d do sorted i ponowne kopcowanie\n",tab[i]);
+        if(t==true){
+            wypisz(tab,0,i);
+            spacje(n);
+            wypisz(tab,i,n);
+            printf("<-przeniesienie wierzcholka %d do sorted i ponowne kopcowanie\n",tab[i]);
+        }
+        
     }
     return tab;
 }
 int main(int argc, char **argv){
     srand(time(NULL));
-    bool t = false;
     if(argc==2){
         if(strcmp(argv[1],"--track")==0){
             printf("track\n");
@@ -73,10 +79,14 @@ int main(int argc, char **argv){
     for(int i=0;i<n;i++){
         heap[i]=random(-9,9);
     }
-    wypisz(heap,0,n);
-    spacje(n);
-    printf("<- wylosowana tablica\n");
+    if(t==true){
+        wypisz(heap,0,n);
+        spacje(n);
+        printf("<- wylosowana tablica\n");
+    }
     int *sorted=sortowanie(heap,n);
+    printf("wynik:\n");
+    wypisz(sorted,0,n);
 
     
     return 0;
