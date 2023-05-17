@@ -43,7 +43,7 @@ void Animal_move(Animal *animal, MoveDirection direction) {
         case FORWARD:
             switch (animal->orientation) {
                 case NORTH:
-                    if (animal->position.y < 10)
+                    if (animal->position.y < 9)
                         animal->position.y++;
                     break;
                 case SOUTH:
@@ -55,7 +55,7 @@ void Animal_move(Animal *animal, MoveDirection direction) {
                         animal->position.x--;
                     break;
                 case EAST:
-                    if (animal->position.x < 10)
+                    if (animal->position.x < 9)
                         animal->position.x++;
                     break;
             }
@@ -67,11 +67,11 @@ void Animal_move(Animal *animal, MoveDirection direction) {
                         animal->position.y--;
                     break;
                 case SOUTH:
-                    if (animal->position.y < 10)
+                    if (animal->position.y < 9)
                         animal->position.y++;
                     break;
                 case WEST:
-                    if (animal->position.x < 10)
+                    if (animal->position.x < 9)
                         animal->position.x++;
                     break;
                 case EAST:

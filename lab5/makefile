@@ -15,7 +15,7 @@ main.o: main.c
 
 test.o: test.c
 	$(CC) $(FLAGS) test.c
-	
+
 animal.o: animal.c
 	$(CC) $(FLAGS) animal.c 
 
@@ -35,4 +35,4 @@ test: $(TEST)
 	$(CC) -g $(TEST) -o test $(LFLAGS)
 
 clean:
-	rm -f $(OBJS) $(OUT)
+	-del -fR $(OBJS) $(OUT).exe test.exe test.o
