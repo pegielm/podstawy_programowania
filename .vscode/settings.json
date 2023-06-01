@@ -6,6 +6,15 @@
         "roznica_symetryczna.h": "c",
         "stdio.h": "c",
         "zawiera.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "bit": "c",
+        "compare": "c",
+        "cstddef": "c",
+        "string": "c",
+        "limits": "c",
+        "memory": "c",
+        "new": "c",
+        "functional": "c",
+        "*.tcc": "c"
     }
 }
