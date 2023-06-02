@@ -42,10 +42,13 @@ int main(){
         if(strcmp(line, "quit") == 0){
             run = false;
         }
-        if(strcmp(line, "print") == 0){
+        else if(strcmp(line, "print") == 0){
             printmap(&map);
         }
-        if(strcmp(line, "add")== 0){
+        else if(strcmp(line,"help")==0){
+            printf("quit - quit the program\nprint - print the map\nadd - add an animal\nf - move forward\nr - turn right\nl - turn left\nb - move backwards\n");
+        }
+        else if(strcmp(line, "add")== 0){
             printf("add\nx:");
             int x;
             scanf("%d", &x);
