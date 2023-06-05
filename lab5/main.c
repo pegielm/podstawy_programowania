@@ -34,11 +34,11 @@ int main(){
     RectangularMap_addAnimal(&map, (Animal){{5, 5}, NORTH});
     bool run = true;
     while(run){
-        //scan line of text from stdin
+        
         printf(">");
         char line[100];
         scanf("%s", line);
-        //check if line is "quit"
+        
         if(strcmp(line, "quit") == 0){
             run = false;
         }

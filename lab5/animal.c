@@ -3,7 +3,6 @@
 #include "map_direction.h"
 #include "move_direction.h"
 #include "vector.h"
-
 typedef struct {
     Vector position;
     MapDirection orientation;
