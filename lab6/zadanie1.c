@@ -11,7 +11,7 @@ typedef struct {
 int get(Element e, const int *matrix) {
     int cols_num = e.cols_num;
     int row = e.row;
-    int col = e.col;
+    int col = e.col; //  1 2 3 4 5 6 7 8 9 
     int index = row * cols_num + col;
     return matrix[index];
 }

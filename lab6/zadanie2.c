@@ -9,11 +9,11 @@ typedef struct {
     char** lines;
     int lineCount;
     int capacity;
-} DataStructure;
+} list;
 
 // Funkcja inicjalizująca strukturę danych
-DataStructure* initializeDataStructure() {
-    DataStructure* data = (DataStructure*)malloc(sizeof(DataStructure));
+list* initializelist() {
+    list* data = (list*)malloc(sizeof(list));
     data->lines = (char**)malloc(INITIAL_CAPACITY * sizeof(char*));
     data->lineCount = 0;
     data->capacity = INITIAL_CAPACITY;
@@ -21,7 +21,7 @@ DataStructure* initializeDataStructure() {
 }
 
 // Funkcja wczytująca linie tekstu z klawiatury
-void readLines(DataStructure* data) {
+void readLines(list* data) {
     char buffer[256];
     while (fgets(buffer, sizeof(buffer), stdin) != NULL) {
         if (data->lineCount >= data->capacity) {
@@ -38,16 +38,17 @@ void readLines(DataStructure* data) {
 }
 
 // Funkcja wyodrębniająca ciągi znaków tworzące prawidłową liczbę dla podanego systemu liczbowego
-int* extractNumbers(DataStructure* data, int base) {
+int* extractNumbers(list* data, int base) {
     int* numbers = (int*)malloc(data->lineCount * sizeof(int));
     for (int i = 0; i < data->lineCount; i++) {
-        numbers[i] = strtol(data->lines[i], NULL, base);
+        numbers[i] = strtol(data->lines[i], NULL , base);
+        //strtol - string to long int - konwertuje string na liczbę
     }
     return numbers;
 }
 
 // Funkcja zwalniająca pamięć zajmowaną przez strukturę danych
-void freeDataStructure(DataStructure* data) {
+void freelist(list* data) {
     for (int i = 0; i < data->lineCount; i++) {
         free(data->lines[i]);
     }
@@ -58,12 +59,12 @@ void freeDataStructure(DataStructure* data) {
 // Testy jednostkowe
 
 void runUnitTests() {
-    // Test initializeDataStructure
-    DataStructure* data = initializeDataStructure();
+    // Test initializelist
+    list* data = initializelist();
     if (data->lineCount == 0 && data->capacity == INITIAL_CAPACITY) {
-        printf("Test initializeDataStructure: Passed\n");
+        printf("Test initializelist: Passed\n");
     } else {
-        printf("Test initializeDataStructure: Failed\n");
+        printf("Test initializelist: Failed\n");
     }
 
     // Test readLines
@@ -84,16 +85,16 @@ void runUnitTests() {
     }
     free(numbers);
 
-    // Test freeDataStructure
-    freeDataStructure(data);
-    printf("Test freeDataStructure: Passed\n");
+    // Test freelist
+    freelist(data);
+    printf("Test freelist: Passed\n");
 }
 
 // Test integracyjny
 
 void runIntegrationTest() {
     printf("Enter test lines (end with Ctrl+D):\n");
-    DataStructure* data = initializeDataStructure();
+    list* data = initializelist();
     readLines(data);
     int* numbers = extractNumbers(data, 10);
     printf("Extracted numbers:\n");
@@ -101,11 +102,11 @@ void runIntegrationTest() {
         printf("%d\n", numbers[i]);
     }
     free(numbers);
-    freeDataStructure(data);
+    freelist(data);
 }
 
 int main() {
-    DataStructure* data = initializeDataStructure();
+    list* data = initializelist();
     printf("Enter lines (end with Ctrl+D):\n");
     readLines(data);
     int* numbers = extractNumbers(data, 10);
@@ -114,7 +115,7 @@ int main() {
         printf("%d\n", numbers[i]);
     }
     free(numbers);
-    freeDataStructure(data);
+    freelist(data);
     printf("\nrun tests? (y/n): ");
     char answer;
     scanf("%c", &answer);
